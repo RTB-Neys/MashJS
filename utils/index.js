@@ -18,18 +18,28 @@ function promptQuestions() {
         },
         {
             type: "input",
-            message: "What technologies were used in this project?",
-            name: "technologies"
-        },
+            message: "What license was used for this project, if any?",
+            name: "license"
+        },       
         {
             type: "input",
-            message: "What are the installation instructions for this project, if any",
+            message: "What are the installation instructions for this project, if any?",
             name: "installation"
         },
         {
             type: "input",
             message: "How would you like your application to be used?",
             name: "usage"
+        },
+        {
+            type: "input",
+            message: "Please enter the name(s) of the contributing creator(s)",
+            name: "contributing"
+        },
+        {
+            type: "input",
+            message: "What command do you use to this the App?",
+            name: "tests"
         },
         {
             type: "input",
@@ -53,11 +63,14 @@ function generateMarkdown(response) {
     # ${ response.title }
 
     # Table of Contents
-
+        
         - [Description](#description)
         - [Installation](#installation)
         - [Usage](#usage)
-        - [Technologies](#technologies)
+        - [License](#license)
+        - [Contributing](#contributing)
+        - [Tests](#tests)
+        - [Questions](#questions)
 
     ## Description:
     ${ response.description }
@@ -68,8 +81,18 @@ function generateMarkdown(response) {
     ## Usage:
     ${ response.usage }
 
-    ## Technologies:
-    ${ response.technologies }
+    ## License:
+    ${ response.license }
+
+    ## Contributing:
+    ${ response.contributing }
+
+    ## Tests:
+    ${ response.tests }
+
+    ## Questions:
+
+    #Should you have any questions, you may review my github reposiory or email me. 
 
     -[GitHub Profile](https://github.com/${response.username})
         - ${ response.email }
@@ -90,5 +113,3 @@ async function init() {
 }
 
 init();
-
-
